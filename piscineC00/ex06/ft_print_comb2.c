@@ -12,35 +12,33 @@
 
 #include <unistd.h>
 
-void ft_writenbr(int n) {
-	char c;
-	c = (n/10) + '0';
-	write(1, &c, 1);
-	c = (n%10) + '0';
-	write(1, &c, 1);
-}
-
 void	ft_print_comb2(void)
 {
-	int		n1;
-	int		n2;
+	int a;
+	int b;
+	char tmp;
 
-	n1 = 0;
-	n2 = 1;
-
-	while (n1 < 99)
+	a = 0;
+	while (a < 99)
 	{
-		ft_writenbr(n1);
-		write(1, " ", 1);
-		ft_writenbr(n2);
-		write(1, ", ", 2);
-		n2++;
-		if (n2 > 99)
+		b = a + 1;
+		while (b <= 99)
 		{
-			n1++;
-			n2 = n1;
-			n2++;
+			tmp = (a / 10) + '0';
+			write(1, &tmp, 1);
+			tmp = (a % 10) + '0';
+			write(1, &tmp, 1);
+			write(1, " ", 1);
+
+			tmp = (b / 10) + '0';
+			write(1, &tmp, 1);
+			tmp = (b % 10) + '0';
+			write(1, &tmp, 1);
+			if (!(a == 98 && b == 99))
+				write(1, ", ", 2);
+			b++;
 		}
+		a++;
 	}
 }
 

@@ -29,7 +29,7 @@ void	ft_print_comb(void)
 			n[2]++;
 		else
 		{
-			if (n[1] < '0')
+			if (n[1] < '8')
 				n[1]++;
 			else
 			{
@@ -39,4 +39,8 @@ void	ft_print_comb(void)
 			n[2] = n[1] + 1;
 		}
 	}
+}
+
+int main() {
+	ft_print_comb();
 }

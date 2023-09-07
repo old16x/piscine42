@@ -6,7 +6,7 @@
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:17:51 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/06 15:36:28 by aradix           ###   ########.fr       */
+/*   Updated: 2023/09/07 09:08:59 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 void	ft_print_alphabet(void)
 {
-	char c;
+	char	c;
 
 	c = 'a';
-	while (c <= 'z') {
+	while (c <= 'z')
+	{
 		write(1, &c, 1);
 		c++;
 	}
-}
-
-int main(void) {
-	ft_print_alphabet();
-	return 0;
 }

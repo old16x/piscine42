@@ -6,7 +6,7 @@
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:46:19 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/06 15:52:50 by aradix           ###   ########.fr       */
+/*   Updated: 2023/09/07 09:11:16 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,4 @@ void	ft_print_numbers(void)
 		write(1, &n, 1);
 		n++;
 	}
-}
-
-int main() {
-	ft_print_numbers();
 }

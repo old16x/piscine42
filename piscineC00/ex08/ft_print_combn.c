@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 15:57:14 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/07 09:12:07 by aradix           ###   ########.fr       */
+/*   Created: 2023/09/07 10:03:24 by aradix            #+#    #+#             */
+/*   Updated: 2023/09/07 14:39:41 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_comb(void)
+void	ft_print_combn(int n)
 {
-	char	a;
-	char	b;
-	char	c;
+	int		i;
+	char	comb[10];
 
-	a = '0';
-	while (a <= '7')
+	if (n <= 0 || n >= 10)
+		return ;
+	i = -1;
+	while (i++ < n - 1)
+		comb[i] = i + '0';
+	while (1)
 	{
-		b = a + 1;
-		while (b <= '8')
+		i = n - 1;
+		while (comb[i] <= (10 - ((n - i)) + '0'))
 		{
-			c = b + 1;
-			while (c <= '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a != '7')
-					write(1, ", ", 2);
-				c++;
-			}
-			b++;
+			write(1, &comb, n);
+			if (comb[0] == 10 - n + '0')
+				return ;
+			write(1, ", ", 2);
+			comb[i]++;
 		}
-		a++;
+		while (i > 0 && comb[i] >= (10 - ((n - i)) + '0'))
+			i--;
+		comb[i]++;
+		while (i++ < n - 1)
+			comb[i] = comb[i - 1] + 1;
 	}
 }

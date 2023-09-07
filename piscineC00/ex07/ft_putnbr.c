@@ -1,30 +1,30 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/07 09:16:20 by aradix            #+#    #+#             */
+/*   Updated: 2023/09/07 10:02:41 by aradix           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+#include <unistd.h>
 
 void	ft_putnbr(int nb)
 {
-	/*	long long x;
-
-	x = (long long)n;*/
 	long	n;
+	char	tmp;
 
 	n = nb;
 	if (n < 0)
 	{
-		ft_putchar('-');
+		write(1, "-", 1);
 		n = -n;
 	}
 	if (n >= 10)
 		ft_putnbr(n / 10);
-	ft_putchar((n % 10) + '0');
+	tmp = (n % 10) + '0';
+	write(1, &tmp, 1);
 }
-
-
-int main() {
-	ft_putnbr(42);
-}
-

@@ -6,7 +6,7 @@
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 12:38:04 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/09 14:55:29 by jemantel         ###   ########.fr       */
+/*   Updated: 2023/09/09 16:49:37 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,48 @@ void	rush(int x, int y);
 
 int	ft_atoi(char *nbr)
 {
-	int	i;
 	int	sign;
 	int	number;
 
-	i = 0;
 	sign = 1;
 	number = 0;
-	while ((nbr[i] >= 9 && nbr[i] <= 13) && nbr[i] || ' ')
-		i++;
-	while (nbr[i] == '-' || nbr[i] == '+')
+	while ((*nbr >= 9 && *nbr <= 13) || (*nbr == ' '))
+		nbr++;
+	while (*nbr == '-' || *nbr == '+')
 	{
-		if (nbr[i] == '-')
+		if (*nbr == '-')
 			sign *= -1;
-		i++;
+		nbr++;
 	}
-	while (nbr[i] >= 48 && nbr[i] <= 57)
+	while (*nbr)
 	{
-		number = number * 10 + (nbr[i] - 48);
-		i++;
+		if (*nbr < '0' || *nbr > '9')
+			return (0);
+		else
+		{
+			number = number * 10 + (*nbr - 48);
+			nbr++;
+		}
 	}
 	return (number * sign);
+}
+
+int	ft_str_to_int(char *str)
+{
+	int	number;
+
+	number = 0;
+	while (*str)
+	{
+		if (*str < '0' || *str > '9')
+			return (0);
+		else
+		{
+			number = number * 10 + (*str - 48);
+			str++;
+		}
+	}
+	return (number);
 }
 
 int	main(int argc, char **argv)

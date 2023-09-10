@@ -6,7 +6,7 @@
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 12:38:04 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/09 16:49:37 by aradix           ###   ########.fr       */
+/*   Updated: 2023/09/10 21:14:11 by jemantel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,6 @@ int	ft_atoi(char *nbr)
 		}
 	}
 	return (number * sign);
-}
-
-int	ft_str_to_int(char *str)
-{
-	int	number;
-
-	number = 0;
-	while (*str)
-	{
-		if (*str < '0' || *str > '9')
-			return (0);
-		else
-		{
-			number = number * 10 + (*str - 48);
-			str++;
-		}
-	}
-	return (number);
 }
 
 int	main(int argc, char **argv)

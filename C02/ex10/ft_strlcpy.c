@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 10:55:39 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/10 11:19:52 by aradix           ###   ########.fr       */
+/*   Created: 2023/09/10 11:16:34 by aradix            #+#    #+#             */
+/*   Updated: 2023/09/10 19:45:52 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (src);
+	unsigned int	i;
+
+	i = 0;
+	while (src[i] && i < size)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	while (src[i])
+		i++;
+	return (i);
 }

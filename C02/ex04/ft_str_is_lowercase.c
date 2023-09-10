@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 10:55:39 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/10 11:19:52 by aradix           ###   ########.fr       */
+/*   Created: 2023/09/10 09:53:23 by aradix            #+#    #+#             */
+/*   Updated: 2023/09/10 09:56:42 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_lowercase(char *str)
 {
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (src);
+	while (*str)
+	{
+		if (*str < 'a' || *str > 'z')
+			return (0);
+		str++;
+	}
+	return (1);
 }

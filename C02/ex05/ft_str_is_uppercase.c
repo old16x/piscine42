@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 10:55:39 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/10 11:19:52 by aradix           ###   ########.fr       */
+/*   Created: 2023/09/10 09:59:18 by aradix            #+#    #+#             */
+/*   Updated: 2023/09/10 09:59:39 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_uppercase(char *str)
 {
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (src);
+	while (*str)
+	{
+		if (*str < 'A' || *str > 'Z')
+			return (0);
+		str++;
+	}
+	return (1);
 }

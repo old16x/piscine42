@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 10:55:39 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/10 11:19:52 by aradix           ###   ########.fr       */
+/*   Created: 2023/09/10 10:12:55 by aradix            #+#    #+#             */
+/*   Updated: 2023/09/10 10:17:08 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strupcase(char *str)
 {
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (src);
+	while (*str)
+	{
+		if (*str >= 'a' && *str <= 'z')
+			*str -= 32;
+		str++;
+	}
+	return (str);
 }

@@ -1,6 +1,7 @@
-void	*ft_print_memoryA(void *addr, unsigned int size);
+/*void	*ft_print_memoryA(void *addr, unsigned int size);
 void	*ft_print_memoryB(void *addr, unsigned int size);
-void	*ft_print_memoryC(void *addr, unsigned int size);
+void	*ft_print_memoryC(void *addr, unsigned int size);*/
+void	*ft_print_memory(void *addr, unsigned int size);
 
 
 #include <stdio.h>
@@ -33,7 +34,7 @@ int	main()
 	printf("size of address of ptr = %lu\n", sizeof(ptr));
 	puts("----- Calling ft_print_memory ------");
 	printf("Argument to function: addr = %p ; size = %lu \n", ptr, strlen(ptr));
-	result = ft_print_memoryC(ptr, (long int)strlen(ptr));
+	result = ft_print_memory(ptr, (long int)strlen(ptr));
 	puts("----- End of ft_print_memory -------");
 	puts("======= Main file debug =======");
 	printf("address of ptr = %p\n", result);

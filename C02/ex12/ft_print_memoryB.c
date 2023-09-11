@@ -75,7 +75,7 @@ void    ft_print_hexa(char *str, int index, int len)
     }
 }
 
-void    *ft_print_memory(void *addr, unsigned int size)
+void    *ft_print_memoryB(void *addr, unsigned int size)
 {
     unsigned char   *str;
     int             len;
@@ -98,8 +98,3 @@ void    *ft_print_memory(void *addr, unsigned int size)
     return (addr);
 }
 
-int main()
-{
-	ft_print_memory("salut ca va giga bg de la street mdr \n lol lol lol lol.", 55);
-	return 0;
-}

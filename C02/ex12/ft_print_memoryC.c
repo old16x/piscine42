@@ -86,7 +86,7 @@ unsigned int	ft_strlen(char *str)
 	return (i);
 }
 
-void	*ft_print_memory(void *addr, unsigned int size)
+void	*ft_print_memoryC(void *addr, unsigned int size)
 {
 	unsigned int	i;
 	void			*return_addr;
@@ -114,8 +114,3 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	return (return_addr);
 }
 
-int main()
-{
-	ft_print_memory("salut ca va giga bg de la street mdr \n lol lol lol lol.", 55);
-	return 0;
-}

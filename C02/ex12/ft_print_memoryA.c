@@ -54,7 +54,7 @@ void	ft_print_memory_at(void *start_addr, unsigned int size, char *curr_addr)
 			ft_write_safe_char((char *)curr_addr + index - 1);
 }
 
-void	*ft_print_memory(void *addr, unsigned int size)
+void	*ft_print_memoryA(void *addr, unsigned int size)
 {
 	char	*curr_addr;
 
@@ -68,8 +68,3 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	return (addr);
 }
 
-int main()
-{
-	ft_print_memory("salut ca va giga bg de la street mdr \n lol lol lol lol.", 55);
-	return 0;
-}

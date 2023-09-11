@@ -15,7 +15,6 @@ char	*ft_strlowcase(char *str);
 char	*ft_strcapitalize(char *str);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 void	ft_putstr_non_printable(char *str);
-void	*ft_print_memory(void *addr, unsigned int size);
 
 void	test_strcpy()
 {
@@ -120,11 +119,6 @@ void	test_putstr_non_printable()
 	ft_putstr_non_printable("Coucou\ntu vas bien \r?");
 }
 
-void	test_print_memory()
-{
-	ft_print_memory("salutt", 14);
-}
-
 int		main()
 {
 	//test_strcpy();
@@ -138,7 +132,6 @@ int		main()
 	//test_strlowercase();
 	//test_strcapitalize();
 	//test_strlcpy();
-	//test_putstr_non_printable();
-	test_print_memory();
+	test_putstr_non_printable();
 	return (0);
 }

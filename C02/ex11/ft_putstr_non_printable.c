@@ -6,40 +6,32 @@
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 19:47:09 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/10 20:49:02 by aradix           ###   ########.fr       */
+/*   Updated: 2023/09/12 12:28:18 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_puthex(int n, char *hex_table)
 {
-	write(1, &c, 1);
-}
-
-int	ft_char_is_printable(char c)
-{
-	if (c >= 32 && c <= 126)
-		return (1);
-	else
-		return (0);
+	write(1, &hex_table[n], 1);
 }
 
 void	ft_putstr_non_printable(char *str)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		if (ft_char_is_printable(str[i]) == 1)
-			ft_putchar(str[i]);
-		else
+		if (str[i] < ' ' || str[i] > '~')
 		{
-			ft_putchar('\\');
-			ft_putchar("0123456789abcdef"[str[i] / 16]);
-			ft_putchar("0123456789abcdef"[str[i] % 16]);
+			write(1, "\\", 1);
+			ft_puthex(str[i] / 16, "0123456789abcdef");
+			ft_puthex(str[i] % 16, "0123456789abcdef");
 		}
+		else
+			write(1, &str[i], 1);
 		i++;
 	}
 }

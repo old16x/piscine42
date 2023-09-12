@@ -6,16 +6,16 @@
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:55:39 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/10 11:19:52 by aradix           ###   ########.fr       */
+/*   Updated: 2023/09/12 11:29:26 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcpy(char *dest, const char *src)
 {
-	unsigned int i;
+	unsigned int		i;
 
 	i = 0;
-	while (src[i])
+	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;

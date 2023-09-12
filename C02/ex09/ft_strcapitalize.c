@@ -6,44 +6,31 @@
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 10:22:26 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/10 11:15:21 by aradix           ###   ########.fr       */
+/*   Updated: 2023/09/12 13:14:29 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
-		i++;
-	}
-	return (str);
-}
-
 char	*ft_strcapitalize(char *str)
 {
-	int		i;
-	int		i1;
+	unsigned int	i;
+	int				s;
 
 	i = 0;
-	i1 = 1;
-	ft_strlowcase(str);
-	while (str[i] != '\0')
+	s = 1;
+	while (str[i])
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
+		while ((str[i] >= 'a' && str[i] <= 'z')
+			|| (str[i] >= 'A' && str[i] <= 'Z')
+			|| (str[i] >= '0' && str[i] <= '9'))
 		{
-			if (i1 == 1)
+			if (s && str[i] >= 'a' && str[i] <= 'z')
 				str[i] -= 32;
-			    i1 = 0;
+			else if (!s && str[i] >= 'A' && str[i] <= 'Z')
+				str[i] += 32;
+			s = 0;
+			i++;
 		}
-		else if (str[i] >= '0' && str[i] <= '9')
-			i1 = 0;
-		else
-			i1 = 1;
+		s = 1;
 		i++;
 	}
 	return (str);

@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 10:22:26 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/13 13:37:43 by aradix           ###   ########.fr       */
+/*   Created: 2023/09/13 10:59:36 by aradix            #+#    #+#             */
+/*   Updated: 2023/09/13 13:05:30 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcapitalize(char *str)
+int	ft_atoi(char *str)
 {
-	unsigned int	i;
-	int				s;
+	int	nb;
+	int	sign;
 
-	i = 0;
-	s = 1;
-	while (str[i])
+	nb = 0;
+	sign = 1;
+	while (*str == ' ' || *str == '\f' || *str == '\n' || *str == '\r'
+		|| *str == '\t' || *str == '\v')
+		str++;
+	while (*str == '-' || *str == '+')
 	{
-		while ((str[i] >= 'a' && str[i] <= 'z')
-			|| (str[i] >= 'A' && str[i] <= 'Z')
-			|| (str[i] >= '0' && str[i] <= '9'))
-		{
-			if (s && str[i] >= 'a' && str[i] <= 'z')
-				str[i] -= 32;
-			else if (!s && str[i] >= 'A' && str[i] <= 'Z')
-				str[i] += 32;
-			s = 0;
-			i++;
-		}
-		s = 1;
-		i++;
+		if (*str == '-')
+			sign *= -1;
+		str++;
 	}
-	return (str);
+	while (*str >= '0' && *str <= '9')
+	{
+		nb = nb * 10 + (*str - '0');
+		str++;
+	}
+	return (nb * sign);
 }

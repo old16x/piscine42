@@ -1,37 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 10:22:26 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/13 13:37:43 by aradix           ###   ########.fr       */
+/*   Created: 2023/09/12 21:48:07 by aradix            #+#    #+#             */
+/*   Updated: 2023/09/12 23:40:41 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcapitalize(char *str)
+unsigned int	ft_strlen(char *src)
 {
 	unsigned int	i;
-	int				s;
 
 	i = 0;
-	s = 1;
-	while (str[i])
-	{
-		while ((str[i] >= 'a' && str[i] <= 'z')
-			|| (str[i] >= 'A' && str[i] <= 'Z')
-			|| (str[i] >= '0' && str[i] <= '9'))
-		{
-			if (s && str[i] >= 'a' && str[i] <= 'z')
-				str[i] -= 32;
-			else if (!s && str[i] >= 'A' && str[i] <= 'Z')
-				str[i] += 32;
-			s = 0;
-			i++;
-		}
-		s = 1;
+	while (src[i])
 		i++;
+	return (i);
+}
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	len;
+
+	i = 0;
+	j = 0;
+	if (size <= ft_strlen(dest))
+		return (ft_strlen(src) + size);
+	while (dest[i] && i < size - 1)
+		i++;
+	len = i;
+	while (src[j] && i < size -1)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	return (str);
+	if (i < size)
+		dest[i] = '\0';
+	return (len + ft_strlen(src));
 }

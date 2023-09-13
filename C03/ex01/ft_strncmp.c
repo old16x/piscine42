@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 10:22:26 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/13 13:37:43 by aradix           ###   ########.fr       */
+/*   Created: 2023/09/12 18:11:32 by aradix            #+#    #+#             */
+/*   Updated: 2023/09/13 16:32:00 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcapitalize(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
-	int				s;
 
+	if (n == 0)
+		return (0);
 	i = 0;
-	s = 1;
-	while (str[i])
-	{
-		while ((str[i] >= 'a' && str[i] <= 'z')
-			|| (str[i] >= 'A' && str[i] <= 'Z')
-			|| (str[i] >= '0' && str[i] <= '9'))
-		{
-			if (s && str[i] >= 'a' && str[i] <= 'z')
-				str[i] -= 32;
-			else if (!s && str[i] >= 'A' && str[i] <= 'Z')
-				str[i] += 32;
-			s = 0;
-			i++;
-		}
-		s = 1;
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
 		i++;
-	}
-	return (str);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

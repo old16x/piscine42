@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 10:22:26 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/13 13:37:43 by aradix           ###   ########.fr       */
+/*   Created: 2023/09/07 17:19:51 by aradix            #+#    #+#             */
+/*   Updated: 2023/09/07 19:18:04 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcapitalize(char *str)
+int	ft_strlen(char *str)
 {
-	unsigned int	i;
-	int				s;
+	int		i;
 
 	i = 0;
-	s = 1;
 	while (str[i])
-	{
-		while ((str[i] >= 'a' && str[i] <= 'z')
-			|| (str[i] >= 'A' && str[i] <= 'Z')
-			|| (str[i] >= '0' && str[i] <= '9'))
-		{
-			if (s && str[i] >= 'a' && str[i] <= 'z')
-				str[i] -= 32;
-			else if (!s && str[i] >= 'A' && str[i] <= 'Z')
-				str[i] += 32;
-			s = 0;
-			i++;
-		}
-		s = 1;
 		i++;
-	}
-	return (str);
+	return (i);
 }

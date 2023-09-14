@@ -55,3 +55,39 @@ char	*ft_strstr(char *str, char *to_find)
 	}
 	return (0);
 }
+
+char *ft_strstr(char *str, char *to_find)
+{
+    unsigned int i;
+    unsigned int j;
+
+    i = 0;
+    if (to_find[0] == '\0')
+        return (str);
+    while (str[i])
+    {
+        j = 0;
+        while (to_find[j] == str[i + j])
+        {
+            if (to_find[j + 1] == '\0')
+                return (str + i);
+            j++;
+        }
+        i++;
+    }
+    return (0);
+}
+
+
+int main() {
+    char str[] = "Hello, World!";
+    char to_find[] = "";
+
+    char *result1 = ft_strstr1(str, to_find);
+    char *result2 = ft_strstr2(str, to_find);
+
+    printf("Result from ft_strstr1: %s\n", result1);
+    printf("Result from ft_strstr2: %s\n", result2);
+
+    return 0;
+}

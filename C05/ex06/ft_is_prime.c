@@ -6,20 +6,20 @@
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:31:51 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/20 17:29:12 by aradix           ###   ########.fr       */
+/*   Updated: 2023/09/21 10:38:57 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int nb)
 {
-	int	i;
+	long	i;
 
 	i = 3;
 	if (nb == 2)
 		return (1);
 	if (nb < 2 || nb % 2 == 0)
 		return (0);
-	while (i * i < nb)
+	while (i * i <= nb)
 	{
 		if (nb % i == 0)
 			return (0);

@@ -6,14 +6,14 @@
 /*   By: aradix <aradix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:59:36 by aradix            #+#    #+#             */
-/*   Updated: 2023/09/13 13:05:30 by aradix           ###   ########.fr       */
+/*   Updated: 2023/09/14 21:18:22 by aradix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(char *str)
 {
-	int	nb;
-	int	sign;
+	long	nb;
+	int		sign;
 
 	nb = 0;
 	sign = 1;
